@@ -1,0 +1,77 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- <script type="text/javascript">
+	///////// this code is for back button disable//////////////
+	history.pushState(null, null, location.href);
+	window.onpopstate = function () {
+		history.go(1);
+	};
+</script> -->
+
+<html>
+
+<head>
+	<style>
+		.button {
+			background-color: #555555;
+			border: none;
+			color: white;
+			padding: 10px 16px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+
+		.alert {
+			padding: 20px;
+			background-color: #2d625f;
+			color: white;
+		}
+
+		.alert-failure {
+			padding: 20px;
+			background-color: #b22222;
+			color: white;
+		}
+
+		.closebtn {
+			margin-left: 15px;
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.closebtn:hover {
+			color: black;
+		}
+	</style>
+
+
+</head>
+
+<body>
+    <form name="frmGame" id="frmGame" action="/fullmap" method="GET" >
+        <input type="hidden" id="uid" name="uid" value={{data}} />
+        <input type="hidden" id="session" name="session" value={{session}} />
+        <div class="alert-failure">
+            <h3><center><span id="notification"></span></center></h3>
+        </div>
+        <script>
+            var id = $('#uid').val();
+            var formAction = $('#frmGame').attr('action');
+            $("#notification").text('Your user id ' + id.toString()+ " has been used to play the game!");
+        </script>
+    </form>
+	<br><br><br><br><br><br><br>
+</body>
+
+</html>

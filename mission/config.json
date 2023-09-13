@@ -1,0 +1,8 @@
+{
+    "game_duration": 300,
+    "max_episode": 2,
+    "run_agent": 1,
+    "human_included": 1,
+    "number_agents": [0,1],
+    "number_human": [1,0]
+}

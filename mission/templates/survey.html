@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/style_survey.css')}}">
+
+<body>
+
+    <table border="1" cellpadding="10" cellspacing="0" style="margin-top:25px; width: 850px;" align="center">
+        <tr>
+            <td>
+                <!-- <div align="center">
+                    <h1>Post-study Questions</h1>
+                </div> -->
+
+                <div align="justify">
+
+                </div>
+                <div class="wrap">
+                    <h1 class="likert-header" align="center">Please evaluate your collaboration with Partner A</h1>
+                    <form action="" onSubmit="return validateForm()">
+                        <div id="q1" class="question">
+                            <label id="q1" class="statement">Partner A and I coordinated our actions well
+                                together.</label>
+                            <ul class='likert'>
+                                <li>
+                                    <input type="radio" id="coordination" name="coordination" value="strong_agree">
+                                    <label>Strongly agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="coordination" name="coordination" value="agree">
+                                    <label>Agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="coordination" name="coordination" value="neutral">
+                                    <label>Neutral</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="coordination" name="coordination" value="disagree">
+                                    <label>Disagree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="coordination" name="coordination" value="strong_disagree">
+                                    <label>Strongly disagree</label>
+                                </li>
+                            </ul>
+                            <center> <span id="q1-required"></span> </center>
+                        </div>
+                        <div id="q2" class="question">
+                            <label class="statement">Partner A and I coordinated our actions better over the course of
+                                the
+                                episode.</label>
+                            <ul class='likert'>
+                                <li>
+                                    <input type="radio" name="improvement" value="strong_agree">
+                                    <label>Strongly agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="improvement" value="agree">
+                                    <label>Agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="improvement" value="neutral">
+                                    <label>Neutral</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="improvement" value="disagree">
+                                    <label>Disagree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="improvement" value="strong_disagree">
+                                    <label>Strongly disagree</label>
+                                </li>
+                            </ul>
+                            <center> <span id="q2-required"></span> </center>
+                        </div>
+                        <div id="q3" class="question">
+                            <label class="statement">Partner A and I contributed equally to the team performance</label>
+                            <ul class='likert'>
+                                <li>
+                                    <input type="radio" name="contribution" value="strong_agree">
+                                    <label>Strongly agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="contribution" value="agree">
+                                    <label>Agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="contribution" value="neutral">
+                                    <label>Neutral</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="contribution" value="disagree">
+                                    <label>Disagree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="contribution" value="strong_disagree">
+                                    <label>Strongly disagree</label>
+                                </li>
+                            </ul>
+                            <center> <span id="q3-required"></span> </center>
+                        </div>
+                        <div id="q4" class="question">
+                            <label class="statement">I had to carry the weight to make the team better.</label>
+                            <ul class='likert'>
+                                <li>
+                                    <input type="radio" name="directional_contribution" value="strong_agree">
+                                    <label>Strongly agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="directional_contribution" value="agree">
+                                    <label>Agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="directional_contribution" value="neutral">
+                                    <label>Neutral</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="directional_contribution" value="disagree">
+                                    <label>Disagree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="directional_contribution" value="strong_disagree">
+                                    <label>Strongly disagree</label>
+                                </li>
+                            </ul>
+                            <center> <span id="q4-required"></span> </center>
+                        </div>
+                        <div id="q5" class="question">
+                            <label class="statement">Partner A perceived accurately what tasks I was trying to
+                                accomplish.</label>
+                            <ul class='likert'>
+                                <li>
+                                    <input type="radio" name="alliance" value="strong_agree">
+                                    <label>Strongly agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="alliance" value="agree">
+                                    <label>Agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="alliance" value="neutral">
+                                    <label>Neutral</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="alliance" value="disagree">
+                                    <label>Disagree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="alliance" value="strong_disagree">
+                                    <label>Strongly disagree</label>
+                                </li>
+                            </ul>
+                            <center> <span id="q5-required"></span> </center>
+                        </div>
+                        <div id="q5" class="question">
+                            <label class="statement">I was able to understand and predict what tasks Partner A was
+                                trying to
+                                accomplish.</label>
+                            <ul class='likert'>
+                                <li>
+                                    <input type="radio" name="ToM" value="strong_agree">
+                                    <label>Strongly agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="ToM" value="agree">
+                                    <label>Agree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="ToM" value="neutral">
+                                    <label>Neutral</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="ToM" value="disagree">
+                                    <label>Disagree</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="ToM" value="strong_disagree">
+                                    <label>Strongly disagree</label>
+                                </li>
+                            </ul>
+                            <center> <span id="q6-required"></span> </center>
+                        </div>
+                        <div class="buttons">
+                            <!-- <button class="clear">Clear</button> -->
+                            <button class="submit">Next</button>
+                        </div>
+                    </form>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        function validateForm() {
+            var coordination_array = document.getElementsByName('coordination');
+            var improvement_array = document.getElementsByName('improvement');
+            var contribution_array = document.getElementsByName('contribution');
+            var dir_contribution_array = document.getElementsByName('directional_contribution');
+            var alliance_array = document.getElementsByName('alliance');
+            var tom_array = document.getElementsByName('ToM');
+
+            if (!coordination_array[0].checked && !coordination_array[1].checked && !coordination_array[2].checked && !coordination_array[3].checked && !coordination_array[4].checked) {
+                // alert('Q1. Response required.');
+                // var el = document.getElementById('q1');
+                // var requiredText = document.getElementById('required');
+                // // el.style["background-color"] = "#FFFFFF";
+                // // el.style["color"] = "#800000";
+                // el.style["border"] = "1px solid red";
+                // requiredText.style["color"] = "#800000";
+                // requiredText.style["font-size"] = "16px";
+                // requiredText.innerHTML = "Response required";
+                // // el_opt.style["border"] = "1px solid red";
+                displayRequirement("q1", true);
+                return false;
+            }else{
+                displayRequirement("q1", false);
+            }
+
+            if (!improvement_array[0].checked && !improvement_array[1].checked && !improvement_array[2].checked && !improvement_array[3].checked && !improvement_array[4].checked) {
+                displayRequirement("q2", true);
+                return false;
+            }else{
+                displayRequirement("q2", false);
+            }
+
+            if (!contribution_array[0].checked && !contribution_array[1].checked && !contribution_array[2].checked && !contribution_array[3].checked && !contribution_array[4].checked) {
+                displayRequirement("q3", true);
+                return false;
+            }else{
+                displayRequirement("q3", false);
+            }
+
+            if (!dir_contribution_array[0].checked && !dir_contribution_array[1].checked && !dir_contribution_array[2].checked && !dir_contribution_array[3].checked && !dir_contribution_array[4].checked) {
+                displayRequirement("q4", true);
+                return false;
+            }else{
+                displayRequirement("q4", false);
+            }
+            if (!alliance_array[0].checked && !alliance_array[1].checked && !alliance_array[2].checked && !alliance_array[3].checked && !alliance_array[4].checked) {
+                displayRequirement("q5", true);
+                return false;
+            }else{
+                displayRequirement("q5", false);
+            }
+            if (!tom_array[0].checked && !tom_array[1].checked && !tom_array[2].checked && !tom_array[3].checked && !tom_array[4].checked) {
+                displayRequirement("q6", true);
+                return false;
+            }else{
+                displayRequirement("q6", false);
+            }
+        }
+        function displayRequirement(elementId, isDisplayed){
+            var el = document.getElementById(elementId);
+            var requiredText = document.getElementById(elementId+'-required');
+            if (isDisplayed){
+                el.style["border"] = "1px solid red";
+                requiredText.style["color"] = "#800000";
+                requiredText.style["font-size"] = "16px";
+                requiredText.innerHTML = "Response required";
+            }else{
+                el.style["border"] = "";
+                requiredText.innerHTML = "";
+            }
+            
+        }
+    </script>
+</body>

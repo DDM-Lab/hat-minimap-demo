@@ -1,0 +1,203 @@
+<script type="text/javascript">
+    // history.pushState(null, null, location.href);
+    // window.onpopstate = function () {
+    //     history.go(1);
+    // };
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = function () {
+        window.history.pushState(null, "", window.location.href);
+    };
+</script>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .button {
+            background-color: #555555;
+            border: none;
+            color: white;
+            padding: 12px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+
+    <title>Instructions - Team Minimap</title>
+</head>
+
+<body>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'tab1')" id="defaultOpen">Today's Task</button>
+        <button class="tablinks" onclick="openTab(event, 'tab2')">"Minimap" rescue mission</button>
+        <button class="tablinks" onclick="openTab(event, 'tab3')">Teamwork</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="tab1" class="tabcontent">
+        <h3>Today's Task</h3>
+        <p>Today you will complete a series of search and rescue scenarios with a team in a browser-based game. </br>
+            The objective in the search and rescue episodes is to help your team save every victim in a building that
+            suffered a collapse.
+            Your team needs to try to save all the victims within 5 minutes, before the episode ends. You will complete
+            2 search and rescue episodes.</br>
+            </br></br>
+            Best of luck with your task!
+        </p>
+    </div>
+
+    <div id="tab2" class="tabcontent">
+        <center>
+            <h3>“Minimap” rescue mission: <br />
+                Structure of the game and Goals
+            </h3>
+        </center>
+        <p>In this task, your team's goal will be to rescue as many victims as possible from inside a building within a
+            5-minute time limit. </p>
+        <p>The building has many rooms, doors, walls and obstacles. However, the walls and the obstacles will be
+            concealed, and you will only be able to see an area of 5x5 squares around you ("vision area").
+            Thus, you need to search around to find the victims to rescue, which are identified as various colored
+            squares.
+            You can see below what this situation would be like. You may also see some other highlights of the
+            environment.</p>
+        <center>
+            <img src="{{ url_for('static', path='img/overview.png')}}" style="width:35%" alt="Minimap">
+        </center>
+        <hr />
+        <center>
+            <img src="{{ url_for('static', path='img/victim_description.png')}}" style="width:35%" alt="victim description">
+        </center>
+        <hr />
+        <center>
+            <img src="{{ url_for('static', path='img/role_description.png')}}" style="width:35%" alt="role description">
+        </center>
+        <hr />
+        <center>
+            <img src="{{ url_for('static', path='img/rescue_general.png')}}" style="width:38%"
+                alt="clear rubble, open door and rescue green victims"><br/><br/>
+            <img src="{{ url_for('static', path='img/rescue_yellow.png')}}" style="width:35%" alt="rescue yellow victims"><br /><br/>
+            <img src="{{ url_for('static', path='img/rescue_red.png')}}" style="width:35%" alt="rescue red victims"><br/><br/>
+            <img src="{{ url_for('static', path='img/speedup.png')}}" style="width:35%" alt="speedup">
+        </center>
+    </div>
+
+    <div id="tab3" class="tabcontent">
+        <h3>
+            <center>Teamwork</center>
+        </h3>
+        <p>In this task, there are <u>no individual rewards</u>.
+            All rewards will be shared equally between teammates.
+            This means that you must work together as a team to achieve the best results. <br />
+            You will not be able to communicate with your teammates during the activity.
+            As a result, you must pay attention to other's movements to know what each team member is doing.</p>
+        <h3>
+            <center>Do not drop out!</center>
+        </h3>
+        <p>
+            Because you are playing with other real people, please <FONT COLOR=red>do not accept this study unless
+            </FONT> you will be able to complete the activity <FONT COLOR=red>promptly and without interruptions.</FONT>
+            <br/><br/>
+            <FONT COLOR=red>
+                    If you drop out, we will not be able to use the data of the whole team.
+                    Thus, if you drop out you will NOT receive any payment.
+                    In addition, your teammates will only receive the base rate and will NOT be eligible for a bonus.
+            </FONT>
+            <br/><br/>
+            You will not be allowed to retake the study (even when it was another player who quit). If you take the
+            study a second time, <FONT COLOR=red>your work will be rejected </FONT> and you will NOT receive a payment.
+            <FONT COLOR=red> Duplicate entries are not allowed.</FONT>
+            <br/><br/>
+            IMPORTANT: Please do NOT refresh the page or attempt to navigate backward at any point in this study. Doing
+            so will void your response and prevent us from issuing your payment.
+            After clicking the Next button below, you will begin the study.
+
+            <br/><br/><br/>
+        <form name="frmGame" id="frmGame" action="/minimap" method="POST">
+            <input type="hidden" id="uid" name="uid" value={{data}} />
+            <input type="hidden" id="session" name="session" value={{session}} />
+            <div align="center">
+                <button name="submit" class="button" id="next-button" type="submit">Next</button>
+            </div>
+            <script>
+                $('#frmGame').on('submit', function () {
+                    var id = $('#uid').val();
+                    var formAction = $('#frmGame').attr('action');
+                    $('#frmGame').attr('action', formAction + '/?uid=' + id.toString());
+                });
+            </script>
+        </form>
+        </p>
+
+    </div>
+    <script>
+        document.getElementById("defaultOpen").click();
+        function openTab(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+
+
+</body>
+
+</html>

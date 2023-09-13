@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<title>Team Minimap</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/materialize.min.css')}}">
+	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/style.css')}}">
+</head>
+<body>
+<div class="container">
+	<div class="back row valign-wrapper" style="height: 700px;">
+		<div class="play col s12">
+			<div class="col s5 center-align" style="margin: 0 auto !important; float: none;">
+					<div class="msg">
+					</div>
+
+				<img src="{{ url_for('static', path='img/emergency.png')}}" style="height: 100px; margin-bottom: 5px;"></center>
+				<h3 style="width:100%;">Welcome</h3>
+
+				<form name="frmGame" id="frmGame" action="/fullmap" method="POST">
+					<input type="hidden" id="uid" name="uid" value={{data}} />
+					<input type="hidden" id="session" name="session" value={{session}} />
+					<div class="col s5">
+						<button name="submit" class="button-decorated" id="join-button" type="submit">Next</button>
+					</div>
+					<script>
+						$('#frmGame').on('submit', function () {
+							var id = $('#uid').val();
+							var formAction = $('#frmGame').attr('action');
+							$('#frmGame').attr('action', formAction + '/?uid=' + id.toString());
+						});
+					</script>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+
+function validateForm() {
+  var x = document.forms["myForm"]["uid"].value;
+  if (x == "") {
+    alert("Name must be filled out!");
+    return false;
+    alert.className += 'alt';
+  }
+}
+</script>
+</body>
+</html>

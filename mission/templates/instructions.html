@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .button {
+            background-color: #555555;
+            border: none;
+            color: white;
+            padding: 12px 28px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+
+    <title>Instructions - Team Minimap</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/materialize.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/style.css')}}">
+</head>
+
+<body>
+
+    <div  class="container">
+        <center>
+            <h3>“Team Minimap” rescue mission: <br />
+                Structure of the game
+            </h3>
+        </center>
+        <p>In this task, your team's goal will be to rescue as many victims as possible from inside a building within a
+            5-minute time limit. </p>
+        <p>The building has many rooms, doors, walls and obstacles. However, the walls and the obstacles will be
+            concealed, and you will only be able to see an area of 5x5 squares around you ("vision area").
+            Thus, you need to search around to find the victims to rescue, which are identified as various colored
+            squares.
+            You can see below what this situation would be like. You may also see some other highlights of the
+            environment.</p>
+        <center>
+            <img src="{{ url_for('static', path='img/overview.png')}}" style="width:55%" alt="Minimap">
+        </center>
+        <hr />
+        <center>
+            <img src="{{ url_for('static', path='img/victim_description.png')}}" style="width:55%" alt="victim description">
+        </center>
+        <hr />
+        <center>
+            <img src="{{ url_for('static', path='img/role_description.png')}}" style="width:55%" alt="role description">
+        </center>
+        <hr />
+        <center>
+            <img src="{{ url_for('static', path='img/rescue_general.png')}}" style="width:58%"
+                alt="clear rubble, open door and rescue green victims"><br/><br/>
+            <img src="{{ url_for('static', path='img/rescue_yellow.png')}}" style="width:55%" alt="rescue yellow victims"><br /><br/>
+            <img src="{{ url_for('static', path='img/rescue_red.png')}}" style="width:55%" alt="rescue red victims"><br/><br/>
+            <img src="{{ url_for('static', path='img/speedup.png')}}" style="width:55%" alt="speedup">
+        </center>
+
+        <div class="col s5 center-align" style="margin: 0 auto !important; float: none;">
+        <form name="frmGame" id="frmGame" action="/fullmap" method="POST">
+            <input type="hidden" id="uid" name="uid" value={{data}} />
+            <input type="hidden" id="session" name="session" value={{session}} />
+            <div class="col s5">
+                <button name="submit" class="button-decorated" id="join-button" type="submit">PLAY</button>
+            </div>
+            <script>
+                $('#frmGame').on('submit', function () {
+                    var id = $('#uid').val();
+                    var formAction = $('#frmGame').attr('action');
+                    $('#frmGame').attr('action', formAction + '/?uid=' + id.toString());
+                });
+            </script>
+        </form>
+        </div>
+    </div>
+
+    <script>
+
+
+        function validateForm() {
+          var x = document.forms["myForm"]["uid"].value;
+          if (x == "") {
+            alert("Name must be filled out!");
+            return false;
+            alert.className += 'alt';
+          }
+        }
+        </script>
+</body>
+
+</html>

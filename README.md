@@ -1,5 +1,5 @@
-# Interactive Web-based Team Minimap (v1.5.1)
-Team task version of 2D browser-based Search and Rescue mission. It was written in Python and Javascript and uses the FastAPI Python framework to display the interface in a web browser. 
+# Interactive Web-based Team Minimap (Demo)
+Demo version of 2D browser-based Team Minimap Search and Rescue mission. It was written in Python and Javascript and uses the FastAPI Python web framework. 
 
 - Navigate the grid: `Arrow Keys` or `Arrow Keys + X` to speed up the move
 - Open a door: `Enter` (only Engineer)

@@ -11,7 +11,7 @@ Demo version of 2D browser-based Team Minimap Search and Rescue mission. It was 
 
 ## Requirements:
 - To run locally:
-    - Python 3.7+ installed
+    - Python 3.9 installed
     - A Web browser
 
 ## Local Installation

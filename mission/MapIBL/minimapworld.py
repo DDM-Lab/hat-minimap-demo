@@ -1,6 +1,6 @@
 import numpy as np
 import random
-# import cv2
+import cv2
 import copy
 import time
 import collections 
@@ -54,30 +54,30 @@ class MAPWORLD(object):
 	def out(self):
 		return self.__out
 
-	# def render(self):
-	# 	'''
-	# 	Used to render the env.
-	# 	'''
-	# 	r = 16 # Number of times the pixel is to be repeated
-	# 	try:
-	# 		# for y in range(self.c.GH):
-	# 		# 	for x in range(self.c.GW):
-	# 		# 		if self.s_t[y][x]==self.c.AGENTS[0]:
-	# 		# 			self.im[y][x] = (128, 128, 128)
-	# 		# 		elif self.s_t[y][x]==self.c.AGENTS[1]:
-	# 		# 			self.im[y][x] = (250,0,0)
-	# 		# 		elif self.s_t[y][x]==self.c.OBSTACLE:
-	# 		# 			self.im[y][x] = (0, 0, 0)
+	def render(self):
+		'''
+		Used to render the env.
+		'''
+		r = 16 # Number of times the pixel is to be repeated
+		try:
+			# for y in range(self.c.GH):
+			# 	for x in range(self.c.GW):
+			# 		if self.s_t[y][x]==self.c.AGENTS[0]:
+			# 			self.im[y][x] = (128, 128, 128)
+			# 		elif self.s_t[y][x]==self.c.AGENTS[1]:
+			# 			self.im[y][x] = (250,0,0)
+			# 		elif self.s_t[y][x]==self.c.OBSTACLE:
+			# 			self.im[y][x] = (0, 0, 0)
 			
-	# 		# img = np.repeat(np.repeat(self.im, r, axis=0), r, axis=1).astype(np.uint8)
-	# 		img = np.repeat(np.repeat(self.s_t, r, axis=0), r, axis=1).astype(np.uint8)
-	# 		img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-	# 		cv2.imshow('image', img)
-	# 		k = cv2.waitKey(1)
-	# 		if k == 27:         # If escape was pressed exit
-	# 			cv2.destroyAllWindows()
-	# 	except AttributeError:
-	# 		pass
+			# img = np.repeat(np.repeat(self.im, r, axis=0), r, axis=1).astype(np.uint8)
+			img = np.repeat(np.repeat(self.s_t, r, axis=0), r, axis=1).astype(np.uint8)
+			img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+			cv2.imshow('image', img)
+			k = cv2.waitKey(1)
+			if k == 27:         # If escape was pressed exit
+				cv2.destroyAllWindows()
+		except AttributeError:
+			pass
 
 	def stats(self):
 		'''

@@ -6,7 +6,8 @@ fastapi==0.61.1
 fastapi-socketio==0.0.9
 gunicorn==20.0.4
 h11==0.9.0
-httptools==0.1.1
+# httptools==0.1.1
+httptools
 idna==2.10
 Jinja2==2.11.2
 MarkupSafe==1.1.1
@@ -28,5 +29,6 @@ uvicorn==0.11.8
 websockets==8.1
 speedyibl
 opencv-python==4.7.0.68
+opencv-python
 matplotlib
 pandas==1.2.4

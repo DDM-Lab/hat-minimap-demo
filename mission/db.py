@@ -4,7 +4,8 @@ from sqlalchemy.orm import sessionmaker
 
 user = "root"
 password = ""
-host = "localhost:3306"
+# host = "localhost:3306" # what the ??? you can't supply the port here!
+host = "localhost"
 db_name = "team_minimap_bot"
 
 

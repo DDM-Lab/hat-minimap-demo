@@ -11,7 +11,7 @@ Demo version of 2D browser-based Team Minimap Search and Rescue mission. It was 
 
 ## Requirements:
 - To run locally:
-    - Python 3.9 installed
+    - Python 3.9 installed [note that it **must** be exactly this version, a later version of Python will **not** work]
     - A Web browser
     - [and MySQL!]
 
@@ -22,8 +22,12 @@ Demo version of 2D browser-based Team Minimap Search and Rescue mission. It was 
     - `source env/bin/activate`
 3. Install the required python libraries by running this command in your shell:
     - `pip install -r requirements.txt`
-4. Create database named `team_minimap_bot` [you will also need to tinker with permissions to make sure the code can access this database!]
-5. Run the file `script.sql` to create according schemas for the `team_minimap_bot` db. 
+    - [several of the dependencies originally specified for this are no longer supported in PyPi and have been updated to more recent ones]
+    - [**before** doing the requirements.txt install, install `wheel` as well]
+    - [it is worth noting that among the dependencies is a forked version of python-socketio which is maintained in Ngoc’s private GitHub space; I don’t know what this was forked]
+4. Create database named `team_minimap_bot` [you will also need to tinker with permissions to make sure the code can access this database! See mission/db.py for what it needs to be.]
+5. Run the file `script.sql` to create according schemas for the `team_minimap_bot` db.
+6. [Ensure that the port this wants to use is open; the default choice has been changed to avoid a conflict on Janus]
 
 ## Notice
 This application is undergoing testing and has not yet been finished. Any suggestions and code updates/requests are welcome.

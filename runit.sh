@@ -1,1 +1,2 @@
-python3 server.py
+source env/bin/activate
+python server.py

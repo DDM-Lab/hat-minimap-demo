@@ -13,6 +13,7 @@ Demo version of 2D browser-based Team Minimap Search and Rescue mission. It was 
 - To run locally:
     - Python 3.9 installed
     - A Web browser
+    - [and MySQL!]
 
 ## Local Installation
 1. In a command shell, goto the main folder of the cloned git repository which contains the `requirements.txt` file.
@@ -21,7 +22,7 @@ Demo version of 2D browser-based Team Minimap Search and Rescue mission. It was 
     - `source env/bin/activate`
 3. Install the required python libraries by running this command in your shell:
     - `pip install -r requirements.txt`
-4. Create database named `team_minimap_bot`
+4. Create database named `team_minimap_bot` [you will also need to tinker with permissions to make sure the code can access this database!]
 5. Run the file `script.sql` to create according schemas for the `team_minimap_bot` db. 
 
 ## Notice
